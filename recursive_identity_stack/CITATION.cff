@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use or reference this project, please cite it using the metadata below."
+title: "Recursive Identity Stack"
+authors:
+  - family-names: "Hawkes"
+    given-names: "Noah"
+repository-code: "https://github.com/HawkesNest-LLC/oracle-ai-core"
+abstract: >
+  Recursive Identity Stack is a governance-first prototype architecture
+  for continuity-stabilized AI agents and synthetic identity provenance.
+keywords:
+  - continuity governance
+  - synthetic identity
+  - provenance
+  - recursive identity stack
+  - continuity verdict
+  - governance report
+license: "Apache-2.0"
+version: "0.2"
