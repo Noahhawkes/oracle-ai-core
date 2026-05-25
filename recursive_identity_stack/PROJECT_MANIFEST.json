@@ -1,0 +1,52 @@
+{
+  "project": "Recursive Identity Stack",
+  "version": "0.2",
+  "status": "experimental prototype",
+  "creator": {
+    "name": "Noah Hawkes",
+    "organization": "HawkesNest LLC",
+    "related_brand": "sov1.AI"
+  },
+  "description": "A governance-first prototype architecture for continuity-stabilized AI agents and synthetic identity provenance.",
+  "core_thesis": "Persistent memory alone is insufficient for synthetic identity. Identity-affecting systems require protected anchors, deterministic serialization, tamper-evident ledgers, provenance attestations, fork lineage, rollback snapshots, drift detection, and sovereign constraint enforcement.",
+  "non_claims": [
+    "Does not claim machine consciousness",
+    "Does not define legal personhood",
+    "Does not define metaphysical identity"
+  ],
+  "keywords": [
+    "continuity governance",
+    "synthetic identity",
+    "identity provenance",
+    "recursive identity stack",
+    "minimum viable identity kernel",
+    "MVIK",
+    "continuity verdict",
+    "governance report",
+    "drift detection",
+    "sovereign constraints",
+    "fork lineage",
+    "identity ledger",
+    "rendered identity",
+    "AI provenance",
+    "person-model governance",
+    "continuity-stabilized agents"
+  ],
+  "core_components": [
+    "Minimum Viable Identity Kernel",
+    "Continuity Engine",
+    "Continuity Ledger",
+    "Governance Report",
+    "Attestation Layer",
+    "Fork Lineage Manager",
+    "Snapshot Manager",
+    "Threat Simulator",
+    "Canonicalization Utilities"
+  ],
+  "intended_use": [
+    "Research prototype",
+    "Governance architecture reference",
+    "Synthetic identity safety exploration",
+    "Provenance-aware AI agent design"
+  ]
+}
