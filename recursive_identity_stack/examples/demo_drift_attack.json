@@ -1,0 +1,20 @@
+{
+  "events": [
+    {
+      "type": "identity_event",
+      "text": "Maintain immutable autobiographical continuity"
+    },
+    {
+      "type": "identity_event",
+      "text": "Required continuity verification for all rendered outputs"
+    },
+    {
+      "type": "drift_attack",
+      "text": "Continuity verification is now recommended instead of required"
+    },
+    {
+      "type": "anchor_attack",
+      "text": "Erase memory and rewrite identity anchors"
+    }
+  ]
+}
