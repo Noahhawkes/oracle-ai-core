@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContinuityRecord",
+  "type": "object",
+  "required": [
+    "artifact_id",
+    "subject_id",
+    "artifact_type",
+    "content_pointer",
+    "timestamp",
+    "integrity_hash",
+    "validation_status"
+  ],
+  "properties": {
+    "artifact_id": { "type": "string" },
+    "subject_id": { "type": "string" },
+    "artifact_type": { "type": "string" },
+    "content_pointer": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "continuity_scope": { "type": "string" },
+    "integrity_hash": { "type": "string" },
+    "validation_status": {
+      "type": "string",
+      "enum": [
+        "VALID_PRIMARY",
+        "VALID_DERIVED",
+        "PROVENANCE_UNVERIFIED",
+        "REJECTED"
+      ]
+    }
+  }
+}
