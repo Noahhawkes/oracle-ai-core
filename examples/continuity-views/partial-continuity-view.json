@@ -1,0 +1,56 @@
+{
+  "subject_id": "noah-hawkes",
+  "requested_scope": "2018-2021",
+  "protocol_state": "PARTIAL_CONTINUITY",
+  "artifacts": [
+    {
+      "artifact_id": "contract-2018",
+      "subject_id": "noah-hawkes",
+      "artifact_type": "contract",
+      "content_pointer": "s3://archive/noah/contract-2018.pdf",
+      "timestamp": "2018-03-01T00:00:00Z",
+      "continuity_scope": "professional",
+      "provenance": {
+        "issuer": "Culligan",
+        "method": "corporate-records",
+        "captured_at": "2018-03-01T00:00:00Z",
+        "chain_of_custody": ["culligan", "noah-personal-archive"]
+      },
+      "integrity_hash": "sha256:def456",
+      "validation_status": "VALID_PRIMARY",
+      "lineage": [],
+      "uncertainty": { "confidence_score": 1.0 }
+    },
+    {
+      "artifact_id": "email-2021",
+      "subject_id": "noah-hawkes",
+      "artifact_type": "email",
+      "content_pointer": "s3://archive/noah/email-2021.eml",
+      "timestamp": "2021-09-10T14:00:00Z",
+      "continuity_scope": "professional",
+      "provenance": {
+        "issuer": "gmail",
+        "method": "server_export",
+        "captured_at": "2021-09-11T00:00:00Z",
+        "chain_of_custody": ["gmail", "noah-personal-archive"]
+      },
+      "integrity_hash": "sha256:ghi789",
+      "validation_status": "VALID_PRIMARY",
+      "lineage": [],
+      "uncertainty": { "confidence_score": 1.0 }
+    }
+  ],
+  "gaps": [
+    {
+      "start": "2018-03-02T00:00:00Z",
+      "end": "2021-09-09T23:59:59Z",
+      "reason": "NO_PRIMARY_ARTIFACTS"
+    }
+  ],
+  "conflicts": [],
+  "constraints": {
+    "allow_inference": false,
+    "forbid_speculation": true,
+    "require_citations": true
+  }
+}
