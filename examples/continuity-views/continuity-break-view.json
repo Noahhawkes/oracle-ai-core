@@ -1,0 +1,56 @@
+{
+  "subject_id": "noah-hawkes",
+  "requested_scope": "2020-2020",
+  "protocol_state": "CONTINUITY_BREAK",
+  "artifacts": [
+    {
+      "artifact_id": "resume-v1",
+      "subject_id": "noah-hawkes",
+      "artifact_type": "resume",
+      "content_pointer": "s3://archive/noah/resume-v1.pdf",
+      "timestamp": "2020-05-01T00:00:00Z",
+      "continuity_scope": "professional",
+      "provenance": {
+        "issuer": "noah",
+        "method": "manual-upload",
+        "captured_at": "2020-05-01T00:00:00Z",
+        "chain_of_custody": ["noah"]
+      },
+      "integrity_hash": "sha256:aaa111",
+      "validation_status": "VALID_PRIMARY",
+      "lineage": [],
+      "uncertainty": { "confidence_score": 0.95 }
+    },
+    {
+      "artifact_id": "resume-v2",
+      "subject_id": "noah-hawkes",
+      "artifact_type": "resume",
+      "content_pointer": "s3://archive/noah/resume-v2.pdf",
+      "timestamp": "2020-05-01T00:00:00Z",
+      "continuity_scope": "professional",
+      "provenance": {
+        "issuer": "noah",
+        "method": "manual-upload",
+        "captured_at": "2020-05-02T00:00:00Z",
+        "chain_of_custody": ["noah"]
+      },
+      "integrity_hash": "sha256:bbb222",
+      "validation_status": "VALID_PRIMARY",
+      "lineage": [],
+      "uncertainty": { "confidence_score": 0.95 }
+    }
+  ],
+  "gaps": [],
+  "conflicts": [
+    {
+      "field": "job_title",
+      "records": ["resume-v1", "resume-v2"],
+      "description": "Two resumes list different job titles for the same date."
+    }
+  ],
+  "constraints": {
+    "allow_inference": false,
+    "forbid_speculation": true,
+    "require_citations": true
+  }
+}
