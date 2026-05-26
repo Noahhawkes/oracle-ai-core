@@ -1,0 +1,18 @@
+{
+  "content": "In 2019, Noah held a professional role documented in a verified email. No validated artifacts exist for 2020–2021.",
+  "source_refs": [
+    {
+      "artifact_id": "email-4421",
+      "inference_level": "DIRECT"
+    }
+  ],
+  "surfaced_gaps": [
+    {
+      "start": "2020-01-01T00:00:00Z",
+      "end": "2021-12-31T23:59:59Z",
+      "reason": "NO_PRIMARY_ARTIFACTS"
+    }
+  ],
+  "surfaced_conflicts": [],
+  "protocol_state": "PARTIAL_CONTINUITY"
+}
