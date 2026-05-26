@@ -1,0 +1,18 @@
+{
+  "name": "oracle-ai-core",
+  "version": "0.1.0",
+  "description": "Reference implementation for continuity-governed retrieval and bounded synthesis.",
+  "type": "module",
+  "scripts": {
+    "test": "tsx tests/run-tests.ts",
+    "validate:examples": "tsx tests/run-tests.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
