@@ -72,19 +72,49 @@ If a behavior matters, it should eventually exist as:
 - an engine function
 - a test fixture
 
-## AI-Assisted Workflow
+## Multi-Model iOS Workflow
 
-This repo is designed for a multi-AI, copy-paste-friendly workflow.
+This repository is designed to work as the shared brain for a phone-based AI workflow.
+
+The repo is the source of truth. AI models are bounded workers.
+
+Use different model roles for different tasks:
+
+- generalist chat models for specs, CRP docs, explanations, and naming
+- code-centric models for TypeScript, Python, validators, tests, and refactors
+- web-aware models for prior art, standards language, terminology, and positioning
+- file-aware or snippet-friendly models for schemas, examples, and fixture generation
+- mobile-integrated tools for share-sheet, clipboard, and shortcut workflows
+
+Do not depend on any model to remember the whole project. Give each model one artifact and one job.
+
+## AI-Assisted Workflow
 
 Recommended loop:
 
-1. Open one file from the repo.
-2. Copy that file into an AI assistant.
-3. Ask for one bounded change.
-4. Review the result.
-5. Commit the improved artifact back to the repo.
+1. Choose one unit of work.
+2. Open the relevant file in GitHub.
+3. Copy that file or snippet into an AI assistant.
+4. Ask for one bounded transformation.
+5. Review the output.
+6. Commit the improved artifact back to the repo.
+7. Use the committed repo artifact as the input for the next model if needed.
 
-Do not ask an AI model to remember the entire project. Hand it the exact artifact it needs.
+Examples of bounded transformations:
+
+- extend one schema object
+- add one ProtocolState
+- write one test fixture
+- refactor one function
+- generate one additional example
+- tighten one CRP section without changing semantics
+
+Avoid unbounded transformations:
+
+- improve everything
+- rewrite the whole system
+- add all missing features
+- make this more advanced
 
 ## Prompt Discipline
 
@@ -95,12 +125,27 @@ Examples:
 - `This is CRP-002: Continuity View Schema. Extend only the Gap object.`
 - `Given evaluateProtocolState.ts, add one protocol state and update tests.`
 - `Using ContinuityView and BoundedSynthesisResponse, generate one failing test fixture.`
+- `Using boundedSynthesis.ts, add enforcement for unsupported claims without changing policy derivation.`
 
 Avoid broad prompts like:
 
 - `Improve the whole system.`
 - `Make this more advanced.`
 - `Add everything we discussed.`
+
+## Integration Rule
+
+AI output is not canonical until reviewed and committed.
+
+A model may draft, refactor, summarize, or test. The repository decides what persists.
+
+The correct integration loop is:
+
+```text
+GitHub artifact → AI worker → human review → GitHub commit
+```
+
+Do not integrate directly from a model response into another model as if it were canonical. Pass through the repo whenever possible.
 
 ## Engine Directory Rules
 
