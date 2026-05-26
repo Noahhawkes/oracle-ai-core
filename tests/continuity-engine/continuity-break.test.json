@@ -1,0 +1,10 @@
+{
+  "name": "continuity-break-detected",
+  "input": {
+    "hasPrimaryArtifacts": true,
+    "hasIdentityMismatch": false,
+    "hasConflicts": true,
+    "hasGaps": false
+  },
+  "expected": "CONTINUITY_BREAK"
+}
