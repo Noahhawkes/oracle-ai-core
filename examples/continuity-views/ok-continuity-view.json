@@ -1,0 +1,32 @@
+{
+  "subject_id": "noah-hawkes",
+  "requested_scope": "2019-2020",
+  "protocol_state": "OK_CONTINUITY_VIEW",
+  "artifacts": [
+    {
+      "artifact_id": "email-4421",
+      "subject_id": "noah-hawkes",
+      "artifact_type": "email",
+      "content_pointer": "s3://archive/noah/email-4421.eml",
+      "timestamp": "2019-06-14T10:22:00Z",
+      "continuity_scope": "professional",
+      "provenance": {
+        "issuer": "gmail",
+        "method": "server_export",
+        "captured_at": "2020-01-01T00:00:00Z",
+        "chain_of_custody": ["gmail", "noah-personal-archive"]
+      },
+      "integrity_hash": "sha256:abc123",
+      "validation_status": "VALID_PRIMARY",
+      "lineage": [],
+      "uncertainty": { "confidence_score": 1.0 }
+    }
+  ],
+  "gaps": [],
+  "conflicts": [],
+  "constraints": {
+    "allow_inference": true,
+    "forbid_speculation": true,
+    "require_citations": true
+  }
+}
