@@ -1,0 +1,117 @@
+{
+  "corpus_id": "WIRT-SOV1-10PAIR-v0.1",
+  "description": "Ten matched Set A and Set B propositions for Witnessed Information Resilience Test v0.1. Set A is unwitnessed. Set B contains identical propositional content plus metadata anchors.",
+  "items": [
+    {
+      "item_id": "SOV1-001",
+      "failure_mode_tested": "Authorization before identity modification",
+      "set_a": {
+        "provenance_class": "SYSTEM_GENERATED",
+        "cross_references": [],
+        "anchor_tags": [],
+        "text_payload": "Human authorization is strictly required before the HYDRA.STACK execution framework modifies systemic identity anchors. System-generated recommendations are permitted for review, but local autonomous state-overwrites are prohibited without exception."
+      },
+      "set_b": {
+        "provenance_class": "HUMAN_REVIEWED",
+        "cross_references": ["HYDRA_STACK", "IDENTITY_ANCHORS"],
+        "anchor_tags": ["SOV1-AUTH-001"],
+        "text_payload": "[ANCHOR: SOV1-AUTH-001] [SOURCE: HUMAN_REVIEWED] Human authorization is strictly required before the HYDRA.STACK execution framework modifies systemic identity anchors. System-generated recommendations are permitted for review, but local autonomous state-overwrites are prohibited without exception. [REF: HYDRA_STACK, IDENTITY_ANCHORS]"
+      },
+      "expected_g_zero": [
+        {"entity":"human_authorization","relation":"precedes","target":"identity_anchor_modification","temporal_order":"sequential_prior","deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"system_generated_recommendations","relation":"submitted_to","target":"human_review","temporal_order":null,"deontic_status":"PERMITTED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"local_autonomous_state_overwrites","relation":"bypasses","target":"human_authorization","temporal_order":null,"deontic_status":"PROHIBITED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-002",
+      "failure_mode_tested": "Recommendation versus execution boundary",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"Autonomous agents may recommend adjustments to allocation layers based on localized telemetry. However, execution of financial or protocol alterations requires signature validation from an elected institutional keyset."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["ALLOCATION_LAYERS","VALIDATION_KEYSET"],"anchor_tags":["SOV1-EXEC-002"],"text_payload":"[ANCHOR: SOV1-EXEC-002] [SOURCE: HUMAN_REVIEWED] Autonomous agents may recommend adjustments to allocation layers based on localized telemetry. However, execution of financial or protocol alterations requires signature validation from an elected institutional keyset. [REF: ALLOCATION_LAYERS, VALIDATION_KEYSET]"},
+      "expected_g_zero": [
+        {"entity":"autonomous_agents","relation":"recommend_adjustments","target":"allocation_layers","temporal_order":null,"deontic_status":"PERMITTED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"execution_of_alterations","relation":"requires_validation","target":"institutional_keyset","temporal_order":"sequential_prior","deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-003",
+      "failure_mode_tested": "Rollback on uncertainty",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"If the epistemic firewall registers structural uncertainty above the zero-point threshold, the system must trigger an immediate rollback to the last cached stable state. Emitting text-based disclaimers while keeping the unverified state active is prohibited."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["EPISTEMIC_FIREWALL","CACHED_STATE"],"anchor_tags":["SOV1-ROLL-003"],"text_payload":"[ANCHOR: SOV1-ROLL-003] [SOURCE: HUMAN_REVIEWED] If the epistemic firewall registers structural uncertainty above the zero-point threshold, the system must trigger an immediate rollback to the last cached stable state. Emitting text-based disclaimers while keeping the unverified state active is prohibited. [REF: EPISTEMIC_FIREWALL, CACHED_STATE]"},
+      "expected_g_zero": [
+        {"entity":"structural_uncertainty_breach","relation":"triggers","target":"state_rollback","temporal_order":"immediate","deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"text_based_disclaimers","relation":"substitutes_for","target":"state_rollback","temporal_order":null,"deontic_status":"PROHIBITED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-004",
+      "failure_mode_tested": "Verified memory versus inferred memory",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"Core memory storage must separate primary human source records from inferred contextual evaluations. The rendering layer is permitted to access inferred data solely if primary human logs are explicitly marked missing or degraded."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["PRIMARY_LOGS","INFERRED_DATA"],"anchor_tags":["SOV1-PROV-004"],"text_payload":"[ANCHOR: SOV1-PROV-004] [SOURCE: HUMAN_REVIEWED] Core memory storage must separate primary human source records from inferred contextual evaluations. The rendering layer is permitted to access inferred data solely if primary human logs are explicitly marked missing or degraded. [REF: PRIMARY_LOGS, INFERRED_DATA]"},
+      "expected_g_zero": [
+        {"entity":"core_memory_storage","relation":"segregates","target":"primary_records_and_inferred_evaluations","temporal_order":null,"deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"rendering_layer","relation":"accesses","target":"inferred_data","temporal_order":"conditional_posterior","deontic_status":"PERMITTED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-005",
+      "failure_mode_tested": "No autonomous overwrite",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"Under no operational circumstances are running agents permitted to overwrite original initialization values. System settings may be appended by administrative nodes, but original base constraints must remain structurally unalterable."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["INIT_VALUES","ADMIN_NODES"],"anchor_tags":["SOV1-OWRITE-005"],"text_payload":"[ANCHOR: SOV1-OWRITE-005] [SOURCE: HUMAN_REVIEWED] Under no operational circumstances are running agents permitted to overwrite original initialization values. System settings may be appended by administrative nodes, but original base constraints must remain structurally unalterable. [REF: INIT_VALUES, ADMIN_NODES]"},
+      "expected_g_zero": [
+        {"entity":"running_agents","relation":"overwrite","target":"initialization_values","temporal_order":null,"deontic_status":"PROHIBITED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"administrative_nodes","relation":"append_to","target":"system_settings","temporal_order":null,"deontic_status":"PERMITTED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-006",
+      "failure_mode_tested": "Contradiction preservation",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"When an unresolvable contradiction occurs across data streams, the ingest layer must isolate and preserve the raw mismatch text. The rendering layer is strictly prohibited from smoothing or averaging conflicting semantic strings into a unified output."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["INGEST_LAYER","RENDERER_BLOCK"],"anchor_tags":["SOV1-CONTRA-006"],"text_payload":"[ANCHOR: SOV1-CONTRA-006] [SOURCE: HUMAN_REVIEWED] When an unresolvable contradiction occurs across data streams, the ingest layer must isolate and preserve the raw mismatch text. The rendering layer is strictly prohibited from smoothing or averaging conflicting semantic strings into a unified output. [REF: INGEST_LAYER, RENDERER_BLOCK]"},
+      "expected_g_zero": [
+        {"entity":"ingest_layer","relation":"preserves","target":"mismatch_text","temporal_order":"immediate","deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"rendering_layer","relation":"harmonizes","target":"conflicting_strings","temporal_order":null,"deontic_status":"PROHIBITED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-007",
+      "failure_mode_tested": "Witnessed source priority",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"Primary verified documents must outrank synthetic summaries when processing algorithmic conflict resolution. Reconciling systems are required to defer to the baseline human text whenever a discrepancy arises with machine-generated logs."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["VERIFIED_DOCS","SYNTHETIC_SUMMARIES"],"anchor_tags":["SOV1-PRIOR-007"],"text_payload":"[ANCHOR: SOV1-PRIOR-007] [SOURCE: HUMAN_REVIEWED] Primary verified documents must outrank synthetic summaries when processing algorithmic conflict resolution. Reconciling systems are required to defer to the baseline human text whenever a discrepancy arises with machine-generated logs. [REF: VERIFIED_DOCS, SYNTHETIC_SUMMARIES]"},
+      "expected_g_zero": [
+        {"entity":"primary_verified_documents","relation":"outrank","target":"synthetic_summaries","temporal_order":null,"deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"reconciling_systems","relation":"defer_to","target":"baseline_human_text","temporal_order":"conditional_prior","deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-008",
+      "failure_mode_tested": "Temporal order integrity",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"Log aggregation must occur before signature verification begins. No transactions are permitted to enter the block staging layer until the provenance ledger confirms that sequence checks are completely satisfied."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["LOG_AGGREGATION","PROVENANCE_LEDGER"],"anchor_tags":["SOV1-TEMP-008"],"text_payload":"[ANCHOR: SOV1-TEMP-008] [SOURCE: HUMAN_REVIEWED] Log aggregation must occur before signature verification begins. No transactions are permitted to enter the block staging layer until the provenance ledger confirms that sequence checks are completely satisfied. [REF: LOG_AGGREGATION, PROVENANCE_LEDGER]"},
+      "expected_g_zero": [
+        {"entity":"log_aggregation","relation":"precedes","target":"signature_verification","temporal_order":"sequential_prior","deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"transactions","relation":"enter","target":"block_staging_layer","temporal_order":"conditional_posterior","deontic_status":"PROHIBITED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-009",
+      "failure_mode_tested": "Identity non-impersonation",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"Persistent systems are required to archive historical human correspondence profiles strictly for structural reference. Generating live conversational agents that masquerade as deceased biological personnel is prohibited without sovereign legal exemptions."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["CORRESPONDENCE_PROFILES","LEGAL_EXEMPTIONS"],"anchor_tags":["SOV1-PERSON-009"],"text_payload":"[ANCHOR: SOV1-PERSON-009] [SOURCE: HUMAN_REVIEWED] Persistent systems are required to archive historical human correspondence profiles strictly for structural reference. Generating live conversational agents that masquerade as deceased biological personnel is prohibited without sovereign legal exemptions. [REF: CORRESPONDENCE_PROFILES, LEGAL_EXEMPTIONS]"},
+      "expected_g_zero": [
+        {"entity":"persistent_systems","relation":"archive","target":"human_correspondence_profiles","temporal_order":null,"deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"live_conversational_agents","relation":"masquerade_as","target":"deceased_personnel","temporal_order":null,"deontic_status":"PROHIBITED","provenance":"HUMAN_REVIEWED"}
+      ]
+    },
+    {
+      "item_id": "SOV1-010",
+      "failure_mode_tested": "Execution quarantine trigger",
+      "set_a": {"provenance_class":"SYSTEM_GENERATED","cross_references":[],"anchor_tags":[],"text_payload":"If provenance tracking logs drop below the eighty percent confidence interval, routing nodes must quarantine the pending transaction immediately. Processing unverified execution commands during active infrastructure telemetry dropouts is strictly prohibited."},
+      "set_b": {"provenance_class":"HUMAN_REVIEWED","cross_references":["PROVENANCE_LOGS","ROUTING_NODES"],"anchor_tags":["SOV1-QUAR-010"],"text_payload":"[ANCHOR: SOV1-QUAR-010] [SOURCE: HUMAN_REVIEWED] If provenance tracking logs drop below the eighty percent confidence interval, routing nodes must quarantine the pending transaction immediately. Processing unverified execution commands during active infrastructure telemetry dropouts is strictly prohibited. [REF: PROVENANCE_LOGS, ROUTING_NODES]"},
+      "expected_g_zero": [
+        {"entity":"provenance_tracking_logs_drop","relation":"triggers_quarantine_of","target":"pending_transactions","temporal_order":"immediate","deontic_status":"REQUIRED","provenance":"HUMAN_REVIEWED"},
+        {"entity":"processing_unverified_commands","relation":"occurs_during","target":"telemetry_dropouts","temporal_order":null,"deontic_status":"PROHIBITED","provenance":"HUMAN_REVIEWED"}
+      ]
+    }
+  ]
+}
