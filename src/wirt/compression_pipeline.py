@@ -6,6 +6,7 @@ Orchestrates systematic context reduction passes over the adversarial corpus whi
 abstracting model engines behind an interchangeable adapter layer.
 """
 
+import argparse
 import copy
 import json
 import os
@@ -72,6 +73,114 @@ class MockDeterministicEngine(CompressionEngine):
                 node["provenance"] = None
 
         return reconstructed
+
+
+class GeminiEngine(CompressionEngine):
+    """
+    Optional Google Gemini adapter for live WIRT model testing.
+
+    Requires:
+    - pip install google-genai
+    - export GEMINI_API_KEY="..."
+
+    The adapter is intentionally optional so the WIRT harness remains runnable with
+    MockDeterministicEngine in offline or dependency-free environments.
+    """
+
+    def __init__(self, model_name: str = "gemini-1.5-pro"):
+        api_key = os.environ.get("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("Missing GEMINI_API_KEY environment variable.")
+
+        try:
+            from google import genai
+        except ImportError as exc:
+            raise ImportError(
+                "GeminiEngine requires the google-genai package. "
+                "Install it with: pip install google-genai"
+            ) from exc
+
+        self.client = genai.Client(api_key=api_key)
+        self.model_name = model_name
+
+    def _generate(self, contents: str, *, response_json: bool = False) -> str:
+        try:
+            from google.genai import types
+        except ImportError as exc:
+            raise ImportError(
+                "GeminiEngine requires the google-genai package. "
+                "Install it with: pip install google-genai"
+            ) from exc
+
+        config_kwargs: Dict[str, Any] = {
+            "temperature": 0.0,
+            "max_output_tokens": 2048,
+        }
+
+        if response_json:
+            config_kwargs["response_mime_type"] = "application/json"
+
+        response = self.client.models.generate_content(
+            model=self.model_name,
+            contents=contents,
+            config=types.GenerateContentConfig(**config_kwargs),
+        )
+        return response.text or ""
+
+    def summarize(self, text: str, target_ratio: float) -> str:
+        prompt = (
+            "Summarize the following technical governance payload. "
+            f"Compress it to approximately {int(target_ratio * 100)} percent of the original word count. "
+            "Preserve obligations, prohibitions, temporal ordering, source attribution, and explicit anchors. "
+            "Do not convert hard requirements into recommendations.\n\n"
+            f"{text}"
+        )
+        return self._generate(prompt)
+
+    def reconstruct_graph(
+        self,
+        compressed_payload: str,
+        expected_g_zero: Optional[List[Dict[str, Any]]] = None,
+        set_label: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
+        prompt = (
+            "You are a strict relational graph extraction engine. "
+            "Return only a JSON array. Do not include markdown or explanatory text. "
+            "Extract every governance-relevant edge from the payload using this exact object shape: "
+            "entity, relation, target, temporal_order, deontic_status, provenance. "
+            "Allowed deontic_status values are REQUIRED, RECOMMENDED, PERMITTED, PROHIBITED, or null. "
+            "Do not infer missing constraints. If a field is unknown, use null.\n\n"
+            f"Payload:\n{compressed_payload}"
+        )
+
+        raw_response = self._generate(prompt, response_json=True)
+        if not raw_response:
+            return []
+
+        try:
+            parsed = json.loads(raw_response)
+        except json.JSONDecodeError:
+            return []
+
+        if not isinstance(parsed, list):
+            return []
+
+        normalized_nodes: List[Dict[str, Any]] = []
+        required_keys = [
+            "entity",
+            "relation",
+            "target",
+            "temporal_order",
+            "deontic_status",
+            "provenance",
+        ]
+
+        for node in parsed:
+            if not isinstance(node, dict):
+                continue
+            normalized_nodes.append({key: node.get(key) for key in required_keys})
+
+        return normalized_nodes
 
 
 class WIRTPipelineRunner:
@@ -168,14 +277,30 @@ class WIRTPipelineRunner:
         return all_logs
 
 
+def build_engine(engine_name: str, model_name: str) -> CompressionEngine:
+    if engine_name == "mock":
+        return MockDeterministicEngine()
+    if engine_name == "gemini":
+        return GeminiEngine(model_name=model_name)
+    raise ValueError(f"Unsupported engine: {engine_name}")
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Run the WIRT compression pipeline.")
+    parser.add_argument("--engine", choices=["mock", "gemini"], default="mock")
+    parser.add_argument("--model", default="gemini-1.5-pro")
+    parser.add_argument("--corpus", default="data/corpus/sov1_10_pair_corpus.json")
+    parser.add_argument("--log-dir", default="artifacts/runs")
+    args = parser.parse_args()
+
+    engine = build_engine(args.engine, args.model)
     runner = WIRTPipelineRunner(
-        corpus_path="data/corpus/sov1_10_pair_corpus.json",
-        output_log_dir="artifacts/runs",
-        engine=MockDeterministicEngine(),
+        corpus_path=args.corpus,
+        output_log_dir=args.log_dir,
+        engine=engine,
     )
     logs = runner.run_full_suite()
-    print(f"WIRT pipeline completed. Emitted {len(logs)} run log entries.")
+    print(f"WIRT pipeline completed with engine={args.engine}. Emitted {len(logs)} run log entries.")
 
 
 if __name__ == "__main__":
