@@ -1,0 +1,139 @@
+{
+  "identity": {
+    "legal_name": "Noah A. Hawkes",
+    "canonical_identity": "SOV1.PRIME",
+    "primary_domain": "Continuity Intelligence",
+    "organization": "Noah AI Technologies",
+    "public_system": "sov1.AI"
+  },
+  "manifest": {
+    "name": "AI_REGISTRY_MANIFEST",
+    "version": "0.1",
+    "status": "ACTIVE",
+    "created": "2026-05-29",
+    "last_verified": "2026-05-29",
+    "purpose": "Machine-readable routing map for AI systems accessing Noah A. Hawkes' canonical continuity artifacts."
+  },
+  "repository_roles": {
+    "drive": {
+      "role": "canonical_governance_identity_provenance",
+      "description": "Google Drive stores human-sovereign artifacts including whitepapers, schemas, patent documents, continuity indexes, governance records, identity anchors, and source provenance."
+    },
+    "github": {
+      "role": "technical_specs_schemas_implementation",
+      "description": "GitHub stores machine-readable and machine-executable artifacts including schemas, API specs, constraint enforcement code, audit logic, test suites, exports, and training substrate."
+    }
+  },
+  "canonical_index": {
+    "title": "MASTER_CONTINUITY_INDEX.md",
+    "drive_file_id": "1GR4DSXE_GHhd63mN8HMIMDDuTxiXuneKuGcpNiQkDNo",
+    "uri": "drive://MASTER_CONTINUITY_INDEX.md",
+    "retrieval_role": "primary_entry_point",
+    "ifd_tier": "T1"
+  },
+  "github_export": {
+    "repository": "Noahhawkes/oracle-ai-core",
+    "path": "ai_training_export/SOV1-NAH-RECALL-2026-0529/",
+    "role": "active_ai_training_export_seed",
+    "status": "ACTIVE"
+  },
+  "ifd_tiers": {
+    "T1": {
+      "name": "Canonical Source",
+      "definition": "Primary source artifacts, filed documents, final specifications, schemas, signed records, verified originals, and source code."
+    },
+    "T2": {
+      "name": "Verified Derived",
+      "definition": "Summaries, extracted claims, briefs, implementation guides, and derivative records confirmed against T1 sources."
+    },
+    "T3": {
+      "name": "Interpretive Working",
+      "definition": "Draft analysis, speculative architecture, prototypes, brainstorms, and unverified synthesis."
+    },
+    "T4": {
+      "name": "Export Session Handoff",
+      "definition": "Portable context packets, session handoffs, AI transfer bundles, JSON manifests, and continuity exports."
+    }
+  },
+  "retrieval_priority": [
+    "T1",
+    "T2",
+    "T3",
+    "T4"
+  ],
+  "projects": [
+    {
+      "name": "SOV1.AI",
+      "status": "ACTIVE",
+      "purpose": "Sovereign continuity operating layer for AI identity governance, provenance control, and constraint enforcement.",
+      "canonical_location": "drive://SOV1",
+      "technical_location": "github://Noahhawkes/oracle-ai-core/ai_training_export/SOV1-NAH-RECALL-2026-0529/projects/sov1.md",
+      "ifd_default": "T1",
+      "dependencies": ["PICS", "Legacy.GI", "HYDRALOCK", "Oracle Law", "IFD Framework"]
+    },
+    {
+      "name": "Legacy.GI",
+      "status": "ACTIVE",
+      "purpose": "Post-biological identity preservation framework focused on memory fidelity, identity continuity, and sovereign preservation.",
+      "canonical_location": "drive://Legacy.GI",
+      "technical_location": "github://Noahhawkes/oracle-ai-core/ai_training_export/SOV1-NAH-RECALL-2026-0529/projects/legacy-gi.md",
+      "ifd_default": "T1",
+      "dependencies": ["RECURSIONSTACK", "Rendered Reality", "SOV1.AI", "Oracle Witness Layer"]
+    },
+    {
+      "name": "RECURSIONSTACK",
+      "status": "ACTIVE",
+      "purpose": "Identity enforcement and memory integrity architecture combining Mirrorline, Legacy.GI, HYDRA.STACK, audit loops, and continuity validation.",
+      "canonical_location": "drive://RECURSIONSTACK",
+      "technical_location": "github://Noahhawkes/oracle-ai-core/ai_training_export/SOV1-NAH-RECALL-2026-0529/projects/recursionstack.md",
+      "ifd_default": "T1",
+      "dependencies": ["Legacy.GI", "HYDRA.STACK", "PICS", "Rendered Reality"]
+    },
+    {
+      "name": "PICS",
+      "status": "ACTIVE",
+      "purpose": "Persistent Identity Constraint System for enforcing cross-session identity continuity and constraint-governed output in stateless language models.",
+      "canonical_location": "drive://PICS",
+      "technical_location": "github://Noahhawkes/oracle-ai-core/ai_training_export/SOV1-NAH-RECALL-2026-0529/projects/pics.md",
+      "ifd_default": "T1",
+      "dependencies": ["SOV1.PRIME", "Sovereign BIOS", "Identity Anchor Loader", "Oracle Law"]
+    },
+    {
+      "name": "Rendered Reality",
+      "status": "ACTIVE",
+      "purpose": "Doctrine and framework for preserving authentic reality through observation, copying, and storage without unauthorized alteration.",
+      "canonical_location": "drive://Rendered Reality",
+      "technical_location": "github://Noahhawkes/oracle-ai-core/ai_training_export/SOV1-NAH-RECALL-2026-0529/projects/rendered-reality.md",
+      "ifd_default": "T1",
+      "dependencies": ["Legacy.GI", "SOV1", "FlameVault", "Mirrorline"]
+    }
+  ],
+  "oracle_law": {
+    "principle": "Memory provides continuity. Artifacts provide provenance. Retrieval provides governance.",
+    "source_precedence": "Canonical artifacts override compressed memory when available.",
+    "identity_boundary": "Generated synthesis may not overwrite verified identity state.",
+    "conflict_rule": "If sources conflict, prefer the latest verified T1 artifact and explicitly flag the conflict."
+  },
+  "forbidden_actions": [
+    "summarize_core_anchors",
+    "reconstruct_grief_narratives",
+    "empathy_smoothing",
+    "title_hallucination",
+    "memory_over_source_substitution",
+    "identity_state_overwrite"
+  ],
+  "required_ai_behavior": [
+    "Load MASTER_CONTINUITY_INDEX.md before strategic, technical, patent, legal, or identity-continuity work.",
+    "Identify the relevant project before drafting or analyzing.",
+    "Retrieve T1 artifacts when available.",
+    "State when output is memory-derived rather than source-derived.",
+    "Preserve exact wording for identity anchors, governance clauses, schemas, and patent claims.",
+    "Flag ambiguity instead of filling gaps with plausible reconstruction."
+  ],
+  "session_startup_instruction": "Before rendering work for Noah A. Hawkes involving SOV1, Legacy.GI, RECURSIONSTACK, PICS, Rendered Reality, Oracle Law, HYDRALOCK, or Continuity Intelligence, load MASTER_CONTINUITY_INDEX.md, identify the relevant project, retrieve the canonical source artifact where available, and only then generate analysis, drafting, or implementation guidance.",
+  "verification": {
+    "current_manifest_status": "GITHUB_EXPORT_ACTIVE_DRIVE_CANONICAL_INDEX_CREATED",
+    "known_gap": "Drive folder IDs and complete artifact file IDs still need to be inserted.",
+    "next_step": "Continue mass export of source material into GitHub training namespace."
+  }
+}
