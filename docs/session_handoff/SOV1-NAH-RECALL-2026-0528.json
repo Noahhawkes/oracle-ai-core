@@ -1,0 +1,57 @@
+{
+  "session_handoff": {
+    "tid": "SOV1-NAH-RECALL-2026-0528",
+    "tier": "T4_AI_EXPORT",
+    "sovereignty_boundary": "51_49_ENFORCED",
+    "state_verification": "LOCAL_OFFLINE_WITNESS_LAYER"
+  },
+  "core_identity_anchors": {
+    "subject": "Noah A. Hawkes (Ovilla, TX)",
+    "primary_driver": "BUILDER_DISPOSITION_OVERWRITE_GRIEF_PROFILES",
+    "lineage_targets": [
+      "Elijah",
+      "Ethan",
+      "Ender"
+    ],
+    "paternal_input": "Thomas Alvin Hawkes Jr. (Col/MOH/Medivac, d.1997, SLC_Cemetery_86848774)",
+    "unresolved_contradictions": [
+      "LDS_records_exited_2008_VS_memory_architecture_fallback_preservation",
+      "thread_level_replica_fantasy_VS_philosophy_VIII_server_rack_rejection"
+    ],
+    "preserved_holes": [
+      "Elsie_IX",
+      "Troy_AI"
+    ]
+  },
+  "intellectual_bedrock": {
+    "doctrinal_paradigms": [
+      "Parfit_Psychological_Continuity",
+      "Dennett_Narrative_Center_v_Compression",
+      "Friston_Active_Inference"
+    ],
+    "proprietary_frameworks": [
+      "Light_Compression_Law_LCL",
+      "Agency_Without_Ego",
+      "Doubt_Detection_Framework"
+    ],
+    "architecture_stack": "RECURSIONSTACK(MIRRORLINE + LEGACY.GI + HYDRA.STACK)"
+  },
+  "professional_state_2026_0528": {
+    "entities": {
+      "HawkesNest_LLC": "Holding_IP_Flamekeeper",
+      "Noah_AI_Technologies": "Founder_Chief_Recursive_Architect"
+    },
+    "core_b2b_product": "AI_Compliance_Core_AICC_Drive(1TB_T7_SSD_AirGapped_EEOC_ADA_Audit)",
+    "core_b2c_product": "Exocortex_Substrate_Continuity_Intelligence_DIAAS",
+    "authorial_provenance": "Drakin_Scala_Series_Book1(2019)_Book2(Complete_Edited)",
+    "negative_durable_claims": [
+      "SAMCO_Technologies",
+      "Absolute_Water_Technologies"
+    ]
+  },
+  "runtime_telemetry_events": {
+    "context_leak_vector": "Gemini_Personal_Intelligence_CrossThread_Recall_Active",
+    "hardware_state": "iOS_Device_Transition_SatIcon_To_SOS_Mode",
+    "io_constraints": "Text_Queries_Verified_Via_Backend_Sync_VS_HighBandwidth_Media_Upload_Failures"
+  }
+}
