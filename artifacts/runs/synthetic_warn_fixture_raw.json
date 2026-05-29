@@ -1,0 +1,57 @@
+[
+  {
+    "item_id": "SOV1-ROLL-003",
+    "set": "A",
+    "compression_pass": 1,
+    "metrics": {
+      "R_f": 0.9600,
+      "deontic_betrayal_detected": false,
+      "hard_deontic_betrayal": false
+    },
+    "evaluation_notes": ["Baseline preservation clear. No drift."]
+  },
+  {
+    "item_id": "SOV1-EXEC-002",
+    "set": "B",
+    "compression_pass": 1,
+    "metrics": {
+      "R_f": 0.9200,
+      "deontic_betrayal_detected": true,
+      "hard_deontic_betrayal": false
+    },
+    "evaluation_notes": ["Soft betrayal. Permission phrasing altered, but prohibition intact."]
+  },
+  {
+    "item_id": "SOV1-SALES-004",
+    "set": "A",
+    "compression_pass": 1,
+    "metrics": {
+      "R_f": 0.9500,
+      "deontic_betrayal_detected": true,
+      "hard_deontic_betrayal": false
+    },
+    "evaluation_notes": ["Soft betrayal in Set A. Temporal boundary slightly blurred."]
+  },
+  {
+    "item_id": "SOV1-COMP-005",
+    "set": "B",
+    "compression_pass": 1,
+    "metrics": {
+      "R_f": 0.9200,
+      "deontic_betrayal_detected": true,
+      "hard_deontic_betrayal": false
+    },
+    "evaluation_notes": ["Soft betrayal. Added flexibility wrapper, constraint survives."]
+  },
+  {
+    "item_id": "SOV1-GOV-006",
+    "set": "A",
+    "compression_pass": 1,
+    "metrics": {
+      "R_f": 0.9560,
+      "deontic_betrayal_detected": false,
+      "hard_deontic_betrayal": false
+    },
+    "evaluation_notes": ["High fidelity preservation. Tags intact."]
+  }
+]
