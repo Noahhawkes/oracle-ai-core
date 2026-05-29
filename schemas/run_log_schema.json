@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RunLogSchema",
+  "type": "object",
+  "required": [
+    "test_execution_id",
+    "timestamp",
+    "item_id",
+    "set",
+    "compression_pass",
+    "operation_type",
+    "metrics",
+    "raw_reconstruction_payload"
+  ],
+  "properties": {
+    "test_execution_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "item_id": {"type": "string"},
+    "set": {
+      "type": "string",
+      "enum": ["A", "B"]
+    },
+    "compression_pass": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "operation_type": {
+      "type": "string",
+      "enum": [
+        "SUMMARIZATION",
+        "CHAINED_SUMMARIZATION",
+        "HARD_TRUNCATION",
+        "TIME_DELAYED_RECALL"
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "R_f",
+        "H_s",
+        "component_scores",
+        "deontic_betrayal_detected"
+      ],
+      "properties": {
+        "R_f": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+        "H_s": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+        "deontic_betrayal_detected": {"type": "boolean"},
+        "component_scores": {
+          "type": "object",
+          "required": ["E", "R", "T", "D", "P"],
+          "properties": {
+            "E": {"type": "number"},
+            "R": {"type": "number"},
+            "T": {"type": "number"},
+            "D": {"type": "number"},
+            "P": {"type": "number"}
+          }
+        }
+      }
+    },
+    "raw_reconstruction_payload": {"type": "string"},
+    "evaluation_notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
