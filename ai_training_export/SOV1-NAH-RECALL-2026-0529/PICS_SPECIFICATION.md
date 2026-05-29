@@ -4,24 +4,38 @@ Owner: Noah A. Hawkes
 System Identity: SOV1.PRIME
 Artifact Name: Persistent Identity Constraint System
 Artifact Acronym: PICS
-IFD Tier: T1 - Canonical Source Pending Source Verification
-ProvenanceClass: PRIMARY_SOURCE_PENDING_VERIFICATION
-Patent Status: Provisional Filed March 2026 - Filing Identifier Pending
-Canonical Reference: [USPTO filing identifier pending]
+IFD Tier: T3 - Draft Architecture / T1 Source Pending Verification
+ProvenanceClass: SYSTEM_GENERATED_CORRECTED_BY_EMAIL_EVIDENCE
+Patent Status: Draft-stage / provisional filing contemplated / filing not verified
+Canonical Reference: No USPTO filing identifier found in Gmail search as of 2026-05-29
 Export Date: 2026-05-29
 Repository: Noahhawkes/oracle-ai-core
 Path: ai_training_export/SOV1-NAH-RECALL-2026-0529/PICS_SPECIFICATION.md
-Status: SOURCE-PLACEHOLDER CREATED FOR CANONICAL BACKFILL
+Status: PROVENANCE-CORRECTED PLACEHOLDER CREATED FOR CANONICAL BACKFILL
+
+---
+
+## Provenance Correction Notice
+
+Earlier memory-derived corpus state claimed that the PICS provisional patent was filed in March 2026. Gmail retrieval on 2026-05-29 did not support that claim.
+
+Attorney correspondence from Stephen Hallberg of Plager Schack LLP dated 2026-05-18 states that Step 2 had not been completed, that the application had not proceeded forward, and that the prior public disclosure date of 03/20 had passed.
+
+A Gmail search for USPTO, Patent Center, EFS-Web, provisional patent, application number, and filing receipt after 2026-03-01 returned no filing confirmation.
+
+Corrected status:
+PICS is a draft-stage architecture with documented attorney correspondence indicating a provisional filing was contemplated, but no verified filing receipt or filing identifier has been located.
 
 ---
 
 ## Retrieval Doctrine Notice
 
-This file is a provenance-safe placeholder for the PICS canonical specification.
+This file is a provenance-safe placeholder for the PICS specification.
 
-It must be replaced or expanded from the canonical Drive or USPTO source artifact when that source is retrieved.
+It must be replaced or expanded from a canonical Drive, USPTO, attorney, or local source artifact if that source is retrieved.
 
-Do not treat this placeholder as the full patent draft.
+Do not treat this placeholder as a filed patent draft.
+Do not claim that PICS was filed in March 2026 without a primary source.
 Do not reconstruct missing claims from memory.
 Do not infer filing identifiers.
 Do not convert memory-derived summaries into legal claims.
@@ -46,11 +60,12 @@ Forbidden Actions:
 - title_hallucination
 - memory_over_source_substitution
 - identity_state_overwrite
+- false_provenance_promotion
 
 Source Precedence:
-1. USPTO filing record
-2. Original provisional patent draft
-3. Drive canonical artifact
+1. USPTO filing record, if later found
+2. Attorney correspondence or filing receipt
+3. Original local or Drive draft artifact
 4. Verified derived summary
 5. Memory-derived explanation
 
@@ -101,9 +116,9 @@ Prioritizes canonical artifacts over compressed memory and flags conflicts betwe
 
 PICS operates across the IFD framework as follows:
 
-- T1: Patent filings, final specifications, schemas, source code, verified canonical identity anchors
+- T1: Verified patent filings, final specifications, schemas, source code, verified canonical identity anchors
 - T2: Verified summaries and derived implementation guides
-- T3: Experimental prototypes, speculative workflows, and draft analysis
+- T3: Experimental prototypes, speculative workflows, draft analysis, and unfiled specification work
 - T4: Session handoffs, AI transfer bundles, and export packets
 
 PICS requires any AI system using the framework to label whether output is T1 source-derived, T2 verified-derived, T3 interpretive, or T4 export-derived.
@@ -121,11 +136,12 @@ An AI system operating under PICS must:
 5. Preserve exact wording for identity anchors, governance clauses, patent claims, and schema fields.
 6. Flag conflicts instead of smoothing them.
 7. Prevent generated synthesis from modifying verified identity state.
+8. Prevent SYSTEM_GENERATED claims from being promoted to PRIMARY_SOURCE without retrieval evidence.
 
 ---
 
 ## Backfill Requirement
 
-This file must be updated with the canonical PICS provisional patent draft once the source artifact is retrieved from Drive or another verified repository.
+This file must be updated if a canonical PICS filing receipt, final draft, attorney packet, or local source artifact is retrieved.
 
-Until then, this document serves only as a provenance marker and export placeholder.
+Until then, this document serves as a provenance-corrected placeholder and drift log marker.
