@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/verification_index.schema.json",
+  "index_version": "0.1.0",
+  "identity_anchor": "Noah Hawkes",
+  "last_updated_sha": "6b323b0dbdd53646f0b3a8911a8a5c6b1394eadd",
+  "verification_records": [
+    {
+      "canonical_term": "WIRT",
+      "canonical_definition": "Witnessed Information Resilience Test. Continuity governance evaluation framework for measuring structural retention, reconstruction fidelity, and deontic betrayal under compression.",
+      "provenance_tier": "witness_grade",
+      "source_paths": [
+        "docs/continuity/verification_index_v0.1.md"
+      ],
+      "commit_shas": [
+        "6b323b0dbdd53646f0b3a8911a8a5c6b1394eadd"
+      ],
+      "superseded_by": null,
+      "confidence_policy": {
+        "allow_generative_interpolation": false,
+        "fallback_behavior": "emit_missing_provenance_error"
+      }
+    }
+  ]
+}
