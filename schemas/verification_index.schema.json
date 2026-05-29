@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "VerificationIndexSchema",
+  "description": "Schema for machine-readable continuity verification index records.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "index_version",
+    "identity_anchor",
+    "last_updated_sha",
+    "verification_records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "index_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "identity_anchor": {
+      "type": "string"
+    },
+    "last_updated_sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "verification_records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "canonical_term",
+          "canonical_definition",
+          "provenance_tier",
+          "source_paths",
+          "commit_shas",
+          "superseded_by",
+          "confidence_policy"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "canonical_term": {
+            "type": "string"
+          },
+          "canonical_definition": {
+            "type": "string"
+          },
+          "provenance_tier": {
+            "type": "string",
+            "enum": [
+              "witness_grade",
+              "corroborated_context",
+              "generative_interpolation"
+            ]
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "commit_shas": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{7,40}$"
+            }
+          },
+          "superseded_by": {
+            "type": ["string", "null"]
+          },
+          "confidence_policy": {
+            "type": "object",
+            "required": [
+              "allow_generative_interpolation",
+              "fallback_behavior"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "allow_generative_interpolation": {
+                "type": "boolean"
+              },
+              "fallback_behavior": {
+                "type": "string",
+                "enum": [
+                  "emit_missing_provenance_error",
+                  "allow_corroborated_summary",
+                  "mark_as_hypothesis"
+                ]
+              },
+              "max_hallucination_depth": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
