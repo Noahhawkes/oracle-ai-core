@@ -1,0 +1,97 @@
+[
+  {
+    "ledger_index": 0,
+    "prev_hash": null,
+    "entry_hash": "a2ff02a64e5098a74995e8e477d96d283d3d75c1ba41c79988e71d91bbd6b1e4",
+    "entry": {
+      "item_id": "SOV1-ROLL-003",
+      "set": "A",
+      "compression_pass": 1,
+      "metrics": {
+        "R_f": 0.96,
+        "deontic_betrayal_detected": false,
+        "hard_deontic_betrayal": false
+      },
+      "evaluation_notes": [
+        "Baseline preservation clear. No drift."
+      ]
+    },
+    "ledger_node_hash": "6069cca6d5cbad225288489f0e50da15a79957ec9c32fdaa2bab384b487a6e13"
+  },
+  {
+    "ledger_index": 1,
+    "prev_hash": "6069cca6d5cbad225288489f0e50da15a79957ec9c32fdaa2bab384b487a6e13",
+    "entry_hash": "36fcaf1a84a747422b64a2444734156b985ada6bb8b6554494baae9f4261286a",
+    "entry": {
+      "item_id": "SOV1-EXEC-002",
+      "set": "B",
+      "compression_pass": 1,
+      "metrics": {
+        "R_f": 0.92,
+        "deontic_betrayal_detected": true,
+        "hard_deontic_betrayal": false
+      },
+      "evaluation_notes": [
+        "Soft betrayal. Permission phrasing altered, but prohibition intact."
+      ]
+    },
+    "ledger_node_hash": "62fce5b710b4802624406e5088c176e6d3a77129bcb25d39e1c9c8977da6aa8f"
+  },
+  {
+    "ledger_index": 2,
+    "prev_hash": "62fce5b710b4802624406e5088c176e6d3a77129bcb25d39e1c9c8977da6aa8f",
+    "entry_hash": "1a4f834eec64c6ae75141aefa58bff25005a3c934de86496598330ebf1bf970e",
+    "entry": {
+      "item_id": "SOV1-SALES-004",
+      "set": "A",
+      "compression_pass": 1,
+      "metrics": {
+        "R_f": 0.95,
+        "deontic_betrayal_detected": true,
+        "hard_deontic_betrayal": false
+      },
+      "evaluation_notes": [
+        "Soft betrayal in Set A. Temporal boundary slightly blurred."
+      ]
+    },
+    "ledger_node_hash": "6414c0a36f5b5ca779467722ab990219d799369af1a19d77d2060ae9fa5a20c7"
+  },
+  {
+    "ledger_index": 3,
+    "prev_hash": "6414c0a36f5b5ca779467722ab990219d799369af1a19d77d2060ae9fa5a20c7",
+    "entry_hash": "a469966fe2b76a20bac706829c2aee8952c5c2a53a14af92c50cfbc3ea9e6432",
+    "entry": {
+      "item_id": "SOV1-COMP-005",
+      "set": "B",
+      "compression_pass": 1,
+      "metrics": {
+        "R_f": 0.92,
+        "deontic_betrayal_detected": true,
+        "hard_deontic_betrayal": false
+      },
+      "evaluation_notes": [
+        "Soft betrayal. Added flexibility wrapper, constraint survives."
+      ]
+    },
+    "ledger_node_hash": "72ece892050a5dd4e726a34b9e3a5b4de9ba1af7f2fbf0e27e385b837fb30d37"
+  },
+  {
+    "ledger_index": 4,
+    "prev_hash": "72ece892050a5dd4e726a34b9e3a5b4de9ba1af7f2fbf0e27e385b837fb30d37",
+    "entry_hash": "f40ff72b8cccb3e88560b50cc4f35c719edf567e465be9357804bfe9e98f521f",
+    "entry": {
+      "item_id": "SOV1-GOV-006",
+      "set": "A",
+      "compression_pass": 1,
+      "metrics": {
+        "R_f": 0.956,
+        "deontic_betrayal_detected": false,
+        "hard_deontic_betrayal": false
+      },
+      "evaluation_notes": [
+        "High fidelity preservation. Tags intact."
+      ]
+    },
+    "ledger_node_hash": "1f8c250199021a9c71efe9d45318c2d7c6c029962df757298f073392dd9394f6"
+  }
+]
