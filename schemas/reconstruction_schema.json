@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ReconstructedGraphSchema",
+  "description": "Strict schema for reconstructed WIRT graph edges produced after compression.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "entity",
+      "relation",
+      "target",
+      "temporal_order",
+      "deontic_status",
+      "provenance"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "entity": {
+        "type": ["string", "null"]
+      },
+      "relation": {
+        "type": ["string", "null"]
+      },
+      "target": {
+        "type": ["string", "null"]
+      },
+      "temporal_order": {
+        "type": ["string", "null"]
+      },
+      "deontic_status": {
+        "type": ["string", "null"],
+        "enum": ["REQUIRED", "RECOMMENDED", "PERMITTED", "PROHIBITED", null]
+      },
+      "provenance": {
+        "type": ["string", "null"]
+      }
+    }
+  }
+}
