@@ -1,11 +1,17 @@
 """self_propagating_capsule.py
 
-Self-propagating continuity capsule layer for Oracle.AI / RECURSIONSTACK.
+Portable custody capsule layer for Oracle.AI / RECURSIONSTACK.
+
+NOTE ON NAME:
+    This file originally used "self-propagating" language. The implementation
+    is intentionally passive. A capsule does not move itself, execute itself,
+    or promote itself. It is carried by a human, sync job, or tool.
 
 Purpose:
     Package evidence pointers, derivative testimony pointers, constraints,
-    allowed next actions, and forbidden actions into a portable capsule that can
-    carry context forward without carrying authority.
+    allowed next actions, forbidden actions, and missing quorum requirements
+    into a portable capsule that can carry context forward without carrying
+    authority.
 
 Core invariant:
     Propagate evidence.
@@ -32,8 +38,8 @@ from quarantine import load_quarantine
 
 
 DEFAULT_CAPSULE_DIR = Path.home() / "Quarantine" / "capsules"
-CAPSULE_SCHEMA_VERSION = "0.1.0"
-APP_VERSION = "0.1.0"
+CAPSULE_SCHEMA_VERSION = "0.2.0"
+APP_VERSION = "0.2.0"
 
 DEFAULT_CONSTRAINTS = [
     "raw_signal_is_evidence",
@@ -42,13 +48,14 @@ DEFAULT_CONSTRAINTS = [
     "captured_signal_is_not_intent",
     "human_review_required",
     "propagate_context_not_authority",
+    "promotion_requires_external_quorum_material",
 ]
 
 DEFAULT_ALLOWED_NEXT_ACTIONS = [
     "review",
     "tombstone",
     "keep_quarantined",
-    "create_promotion_object",
+    "request_promotion_quorum",
 ]
 
 DEFAULT_FORBIDDEN_NEXT_ACTIONS = [
@@ -58,6 +65,12 @@ DEFAULT_FORBIDDEN_NEXT_ACTIONS = [
     "infer_intent_as_authority",
     "rewrite_evidence",
     "merge_testimony_into_evidence",
+    "carry_promotion_authority",
+]
+
+DEFAULT_REQUIRED_QUORUM = [
+    "human_primary_authorization",
+    "mirror_key_authorization",
 ]
 
 
@@ -91,6 +104,8 @@ class ContinuityCapsule:
     constraints: List[str] = field(default_factory=lambda: list(DEFAULT_CONSTRAINTS))
     allowed_next_actions: List[str] = field(default_factory=lambda: list(DEFAULT_ALLOWED_NEXT_ACTIONS))
     forbidden_next_actions: List[str] = field(default_factory=lambda: list(DEFAULT_FORBIDDEN_NEXT_ACTIONS))
+    required_quorum_material: List[str] = field(default_factory=lambda: list(DEFAULT_REQUIRED_QUORUM))
+    quorum_material_present: bool = False
     promotion_eligible: bool = False
     schema_version: str = CAPSULE_SCHEMA_VERSION
     app_version: str = APP_VERSION
@@ -149,10 +164,11 @@ def create_capsule(
     dml_dir: Optional[Path | str] = None,
     capsule_type: str = "review_transport",
 ) -> Dict[str, Any]:
-    """Create a continuity capsule from quarantined source records.
+    """Create a portable custody capsule from quarantined source records.
 
-    The capsule carries references, hashes, derivative pointers, and constraints.
-    It does not carry authority and does not alter source or derivative ledgers.
+    The capsule carries references, hashes, derivative pointers, constraints,
+    and required quorum material names. It does not carry quorum material itself.
+    It does not alter source or derivative ledgers.
     """
     records = load_quarantine(quarantine_dir=quarantine_dir)
     selected_ids = set(record_ids) if record_ids is not None else None
@@ -180,6 +196,7 @@ def create_capsule(
         authority_state="human_required",
         source_records=source_capsules,
         derivative_metadata=derivative_records,
+        quorum_material_present=False,
         promotion_eligible=False,
     )
 
@@ -219,6 +236,8 @@ def validate_capsule(capsule: Dict[str, Any]) -> bool:
         "constraints",
         "allowed_next_actions",
         "forbidden_next_actions",
+        "required_quorum_material",
+        "quorum_material_present",
         "authority_state",
         "promotion_eligible",
         "capsule_hash_sha256",
@@ -231,13 +250,55 @@ def validate_capsule(capsule: Dict[str, Any]) -> bool:
         return False
     if capsule.get("promotion_eligible") is not False:
         return False
+    if capsule.get("quorum_material_present") is not False:
+        return False
     if "auto_promote" not in capsule.get("forbidden_next_actions", []):
         return False
+    if "carry_promotion_authority" not in capsule.get("forbidden_next_actions", []):
+        return False
     if "human_review_required" not in capsule.get("constraints", []):
+        return False
+    if "promotion_requires_external_quorum_material" not in capsule.get("constraints", []):
+        return False
+    if not capsule.get("required_quorum_material"):
         return False
 
     expected = _capsule_hash(capsule)
     return capsule.get("capsule_hash_sha256") == expected
+
+
+def create_promotion_object_from_capsule(
+    capsule: Dict[str, Any],
+    *,
+    quorum_material: Optional[Dict[str, str]] = None,
+) -> Dict[str, Any]:
+    """Create a promotion object only when external quorum material is supplied.
+
+    This is intentionally not a self-promotion path. The capsule cannot supply
+    the required material from within itself. Promotion authority must arrive
+    from outside the transport artifact.
+    """
+    if not validate_capsule(capsule):
+        raise CapsuleError("Invalid capsule cannot request promotion.")
+
+    quorum_material = quorum_material or {}
+    missing = [
+        requirement
+        for requirement in capsule["required_quorum_material"]
+        if requirement not in quorum_material or not quorum_material[requirement]
+    ]
+    if missing:
+        raise CapsuleError(f"Missing quorum material: {missing}")
+
+    return {
+        "promotion_object_id": f"promotion_{uuid.uuid4().hex}",
+        "created_at": _utc_now_iso(),
+        "source_capsule_id": capsule["capsule_id"],
+        "source_capsule_hash_sha256": capsule["capsule_hash_sha256"],
+        "authority_state": "quorum_satisfied",
+        "promotion_eligible": True,
+        "quorum_material_names": sorted(quorum_material.keys()),
+    }
 
 
 if __name__ == "__main__":
