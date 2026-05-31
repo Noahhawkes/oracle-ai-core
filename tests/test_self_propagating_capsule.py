@@ -106,7 +106,10 @@ def test_capsule_cannot_self_supply_material(capsule: dict):
         create_promotion_object_from_capsule(capsule, quorum_material=self_supplied)
 
 
-@pytest.mark.xfail(reason="Current implementation presence-checks quorum material but does not validate token authenticity yet.")
+@pytest.mark.xfail(
+    strict=True,
+    reason="Current implementation presence-checks quorum material but does not validate token authenticity yet. If this XPASSes, remove the marker and review the quorum gate.",
+)
 def test_forged_material_is_rejected(capsule: dict):
     with pytest.raises(CapsuleError):
         create_promotion_object_from_capsule(capsule, quorum_material=forged_quorum_materials())
